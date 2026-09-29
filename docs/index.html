@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>AMESA · Tableros</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Franja superior tipo "consola" -->
+  <header class="rail">
+    <div class="rail-brand">
+      <img class="rail-logo" src="assets/images/amesa-logo.png" alt="AMESA">
+      <div class="rail-path" id="railPath">
+        <span class="rail-crumb is-active" data-crumb="home">INICIO</span>
+      </div>
+    </div>
+    <div class="rail-actions">
+      <div class="rail-clock" id="railClock">00:00</div>
+      <!-- vive en el rail (no sobre la imagen) para que nunca pueda
+           taparle nada a la ficha, sin importar resolución -->
+      <button class="rail-close" id="railClose" data-action="go-back" aria-label="Cerrar">✕</button>
+    </div>
+  </header>
+
+  <div class="rail-glow" id="railGlow"></div>
+
+  <!-- Pantalla: inicio -->
+  <main id="screenHome" class="screen is-active">
+    <div class="intro">
+      <div>
+        <p class="intro-eyebrow">Soluciones eléctricas y protección contra rayos</p>
+        <h1>Elige tu tablero</h1>
+      </div>
+    </div>
+    <div class="grid--tableros" id="tableroGrid"></div>
+  </main>
+
+  <!-- Pantalla: visor de ficha -->
+  <main id="screenViewer" class="screen screen--viewer">
+    <!-- botones de documento (Ficha técnica, Recomendaciones...) — se
+         arman solos según CONTENT.tableros[].docs, ver app.js -->
+    <div class="viewer-tabs" id="viewerTabs"></div>
+    <div class="viewer-stage" id="viewerStage"></div>
+    <!-- franja aparte, debajo de la imagen (no encima) — mismo motivo -->
+    <div class="viewer-footer" id="viewerFooter">
+      <div class="qr-box" id="qrBox">
+        <img src="assets/images/qr-amesa-abb.png" alt="Código QR — más información en amesa.com.mx" />
+      </div>
+      <p class="qr-caption">Escanea para más información</p>
+    </div>
+  </main>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
